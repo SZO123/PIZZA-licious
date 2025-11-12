@@ -29,3 +29,39 @@ This project demonstrates advanced Object-Oriented Programming principles includ
 ---
 
 ### Project Structure
+com.pluralsight
+│── Main.java
+│── Pizza.java
+│── Drinks.java
+│── GarlicKnots.java
+│── Order.java
+│── OrderItems.java
+│── ReceiptFileManager.java
+
+---
+
+### OOP Concepts Demonstrated
+- **Abstraction**  
+  `OrderItems` is an abstract class that defines a `getCost()` method used by all order items.  
+- **Inheritance**  
+  `Pizza`, `Drinks`, and `GarlicKnots` extend `OrderItems`, inheriting its structure.  
+- **Polymorphism**  
+  The `Order` class uses a list of `OrderItems`, allowing it to treat all items (pizza, drinks, sides) the same way.  
+- **Encapsulation**  
+  Each model class has private fields with getter and setter methods for controlled access.
+
+---
+
+### Interesting Code Example
+This method in `Order.java` demonstrates **polymorphism** clearly:
+
+```java
+private double calculateOrderTotal() {
+    double orderTotal = 0;
+    for (OrderItems item : items) {
+        orderTotal += item.getCost(); // Each subclass defines its own version
+    }
+    return orderTotal;
+}
+
+
