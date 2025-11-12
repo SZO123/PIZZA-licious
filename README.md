@@ -64,4 +64,6 @@ private double calculateOrderTotal() {
     return orderTotal;
 }
 
+### Screenshots
 
+Homescreen: <img width="1429" height="825" alt="Screenshot 2025-11-12 at 10 04 27 AM" src="https://github.com/user-attachments/assets/e57109ea-9a06-47fa-9e0b-7eb739f7ba0e" />
