@@ -13,7 +13,7 @@ public class ReceiptFileManager {
 
         try {
             //create receipts folder if it doesn't exist
-            File folder = new File("receipts");
+            File folder = new File("receipt");
             if (!folder.exists()) {
                 folder.mkdir();
             }
