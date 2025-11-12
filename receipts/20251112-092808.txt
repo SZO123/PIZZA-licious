@@ -1,0 +1,13 @@
+Order Details:
+
+Pizza:
+Size: 16"
+Crust: Cauliflower
+Stuffed Crust: true
+Sauces: [Marinara]
+Meats: [Chicken]
+Cheeses: [Mozzarella]
+Toppings: [Bell Peppers]
+Price: $24.15
+
+Order Total: $24.15

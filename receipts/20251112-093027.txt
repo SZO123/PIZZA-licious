@@ -1,0 +1,8 @@
+Order Details:
+
+Drink: 
+Flavor: Lemonade
+Size: Large
+Price: $3.00
+
+Order Total: $3.00

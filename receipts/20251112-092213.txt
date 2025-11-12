@@ -1,0 +1,8 @@
+Order Details:
+
+Drink: 
+Flavor: Pepsi
+Size: Medium
+Price: $2.50
+
+Order Total: $2.50

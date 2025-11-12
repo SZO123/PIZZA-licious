@@ -1,0 +1,7 @@
+Order Details:
+
+Garlic Knots:
+Quantity: 20
+Price: $30.00
+
+Order Total: $30.00
