@@ -29,15 +29,16 @@ This project demonstrates advanced Object-Oriented Programming principles includ
 ---
 
 ### Project Structure
-com.pluralsight
-│── Main.java
-│── Pizza.java
-│── Drinks.java
-│── GarlicKnots.java
-│── Order.java
-│── OrderItems.java
-│── ReceiptFileManager.java
-
+```
+com.pluralsight  
+│── Main.java  
+│── Pizza.java  
+│── Drinks.java  
+│── GarlicKnots.java  
+│── Order.java  
+│── OrderItems.java  
+│── ReceiptFileManager.java  
+```
 ---
 
 ### OOP Concepts Demonstrated
@@ -55,6 +56,8 @@ com.pluralsight
 ### Interesting Code Example
 This method in `Order.java` demonstrates **polymorphism** clearly:
 
+This allows the program to calculate totals without knowing whether each item is a pizza, drink, or side. Each subclass defines its own getCost() behavior, making the system flexible and easy to expand.
+
 ```java
 private double calculateOrderTotal() {
     double orderTotal = 0;
@@ -63,7 +66,36 @@ private double calculateOrderTotal() {
     }
     return orderTotal;
 }
+```
+
+### How to Run
+1. Open the project in IntelliJ IDEA.  
+2. Run `Main.java` located in `com.pluralsight`.  
+3. Follow the console prompts to place an order.  
+4. After checkout, view your saved receipt in the `/receipts` folder.  
 
 ### Screenshots
 
-Homescreen: <img width="1429" height="825" alt="Screenshot 2025-11-12 at 10 04 27 AM" src="https://github.com/user-attachments/assets/e57109ea-9a06-47fa-9e0b-7eb739f7ba0e" />
+Homescreen:
+<img width="1429" height="825" alt="Screenshot 2025-11-12 at 10 04 27 AM" src="https://github.com/user-attachments/assets/62deacba-65d3-458a-83d4-279fe077db15" />
+
+OrderScreen:
+<img width="1429" height="681" alt="Screenshot 2025-11-12 at 10 25 39 AM" src="https://github.com/user-attachments/assets/f2e49701-3147-4481-89df-fefcbef83238" />
+
+CheckOut:
+<img width="1440" height="536" alt="Screenshot 2025-11-12 at 10 27 04 AM" src="https://github.com/user-attachments/assets/1d55f92b-9efc-49b0-80bf-f6af5cb781aa" />
+
+ReceiptFileManager:
+<img width="1440" height="831" alt="Screenshot 2025-11-12 at 10 27 54 AM" src="https://github.com/user-attachments/assets/5587229f-63af-4d6a-b0b0-e6effd58877d" />
+
+### Technologies Used
+- Java 17  
+- IntelliJ IDEA  
+- Object-Oriented Programming (OOP) principles  
+- File I/O using BufferedWriter
+
+- Developer
+
+Najib
+- Student / Year Up United
+- Advanced Java OOP Capstone Project
