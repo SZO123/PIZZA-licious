@@ -3,19 +3,27 @@ package com.pluralsight;
 import java.util.ArrayList;
 import static com.pluralsight.Main.scanner;
 
-//This class represents a pizza item in an order, including size, crust, toppings, and stuffed crust option.
 public class Pizza extends OrderItems {
 
-    private String pizzaSize; //8", 12", 16"
-    private String crustType; //Thin, Regular, Thick, Cauliflower
-    private boolean stuffedCrust; //true or false
-    private ArrayList<String> sauces; //sauce list
-    private ArrayList<String> meats; //premium toppings
-    private ArrayList<String> cheeses; //premium toppings
-    private ArrayList<String> regularToppings; //included toppings
-    private double basePrice; //base price depending on size
+    // Size of the pizza: 8, 12, or 16
+    private String pizzaSize;
 
-    //constructor
+    // Crust type: Thin, Hand Tossed, Deep Dish, etc.
+    private String crustType;
+
+    // True if the user selected stuffed crust
+    private boolean stuffedCrust;
+
+    // Lists for different topping types
+    private ArrayList<String> sauces;
+    private ArrayList<String> meats;            // premium toppings
+    private ArrayList<String> cheeses;          // premium toppings
+    private ArrayList<String> regularToppings;  // included toppings
+
+    // Base price depends on size
+    private double basePrice;
+
+    // Constructor sets size, creates lists, and sets base price
     public Pizza(String pizzaSize) {
         this.pizzaSize = pizzaSize;
         this.sauces = new ArrayList<>();
@@ -25,7 +33,8 @@ public class Pizza extends OrderItems {
         setBasePrice(pizzaSize);
     }
 
-    //set base price depending on pizza size
+    // Set base price based on pizza size
+// 8" = 8.50, 12" = 12.00, 16" = 16.50
     private void setBasePrice(String pizzaSize) {
         switch (pizzaSize) {
             case "8":
@@ -43,26 +52,31 @@ public class Pizza extends OrderItems {
         }
     }
 
-    //add toppings to pizza
+    // Add sauce to the pizza
     public void addSauce(String sauce) {
         sauces.add(sauce);
     }
 
+    // Add premium meat topping
     public void addMeat(String meat) {
         meats.add(meat);
     }
 
+    // Add premium cheese topping
     public void addCheese(String cheese) {
         cheeses.add(cheese);
     }
 
+    // Add regular topping (included in price)
     public void addRegularTopping(String topping) {
         regularToppings.add(topping);
     }
 
-    //prompt user to build and add pizza to order
+    // Build a pizza by asking the user questions
+// Then add the pizza to the order
     static void addPizzaToOrder(Order order) {
 
+        // Ask for size
         System.out.println("Choose pizza size:");
         System.out.println("1) 8\"");
         System.out.println("2) 12\"");
@@ -80,26 +94,25 @@ public class Pizza extends OrderItems {
 
         Pizza pizza = new Pizza(pizzaSize);
 
-        //crust type
+        // Ask for crust type
         System.out.println("Select crust type:");
         for (int i = 0; i < MenuItems.crustTypes.length; i++) {
-            System.out.println(i + 1 + ") " + MenuItems.crustTypes[i]);
+            System.out.println((i + 1) + ") " + MenuItems.crustTypes[i]);
         }
         System.out.print("\nEnter selection: ");
         int crustSelection = Integer.parseInt(scanner.nextLine());
         pizza.crustType = MenuItems.crustTypes[crustSelection - 1];
         System.out.println("-------------------------------------------------------------------");
 
-        //stuffed crust
+        // Ask for stuffed crust
         System.out.print("Would you like stuffed crust? (Y or N): ");
-        String stuffed = scanner.nextLine();
-        pizza.stuffedCrust = stuffed.equalsIgnoreCase("Y");
+        pizza.stuffedCrust = scanner.nextLine().equalsIgnoreCase("Y");
         System.out.println("-------------------------------------------------------------------");
 
-        //sauce
-        System.out.println("Select your sauces (comma separated for multiple):");
+        // Ask for sauces
+        System.out.println("Select your sauces (comma separated):");
         for (int i = 0; i < MenuItems.sauces.length; i++) {
-            System.out.println(i + 1 + ") " + MenuItems.sauces[i]);
+            System.out.println((i + 1) + ") " + MenuItems.sauces[i]);
         }
         System.out.print("\nEnter selection: ");
         String[] sauceSelection = scanner.nextLine().split(",");
@@ -109,10 +122,10 @@ public class Pizza extends OrderItems {
         }
         System.out.println("-------------------------------------------------------------------");
 
-        //meats
-        System.out.println("Select meats (premium, comma separated):");
+        // Ask for meats (premium)
+        System.out.println("Select meats (comma separated):");
         for (int i = 0; i < MenuItems.meats.length; i++) {
-            System.out.println(i + 1 + ") " + MenuItems.meats[i]);
+            System.out.println((i + 1) + ") " + MenuItems.meats[i]);
         }
         System.out.print("\nEnter selection: ");
         String[] meatSelection = scanner.nextLine().split(",");
@@ -121,17 +134,17 @@ public class Pizza extends OrderItems {
             pizza.addMeat(MenuItems.meats[idx]);
         }
 
-        System.out.print("Would you like extra meat for an additional cost? (Y or N): ");
-        String extraMeat = scanner.nextLine();
-        if (extraMeat.equalsIgnoreCase("Y")) {
+        // Ask for extra meat
+        System.out.print("Would you like extra meat? (Y or N): ");
+        if (scanner.nextLine().equalsIgnoreCase("Y")) {
             pizza.addExtraMeat();
         }
         System.out.println("-------------------------------------------------------------------");
 
-        //cheeses
-        System.out.println("Select cheeses (premium, comma separated):");
+        // Ask for cheeses (premium)
+        System.out.println("Select cheeses (comma separated):");
         for (int i = 0; i < MenuItems.cheeses.length; i++) {
-            System.out.println(i + 1 + ") " + MenuItems.cheeses[i]);
+            System.out.println((i + 1) + ") " + MenuItems.cheeses[i]);
         }
         System.out.print("\nEnter selection: ");
         String[] cheeseSelection = scanner.nextLine().split(",");
@@ -140,17 +153,17 @@ public class Pizza extends OrderItems {
             pizza.addCheese(MenuItems.cheeses[idx]);
         }
 
-        System.out.print("Would you like extra cheese for an additional cost? (Y or N): ");
-        String extraCheese = scanner.nextLine();
-        if (extraCheese.equalsIgnoreCase("Y")) {
+        // Ask for extra cheese
+        System.out.print("Would you like extra cheese? (Y or N): ");
+        if (scanner.nextLine().equalsIgnoreCase("Y")) {
             pizza.addExtraCheese();
         }
         System.out.println("-------------------------------------------------------------------");
 
-        //regular toppings
+        // Ask for regular toppings (included)
         System.out.println("Select regular toppings (comma separated):");
         for (int i = 0; i < MenuItems.regularToppings.length; i++) {
-            System.out.println(i + 1 + ") " + MenuItems.regularToppings[i]);
+            System.out.println((i + 1) + ") " + MenuItems.regularToppings[i]);
         }
         System.out.print("\nEnter selection: ");
         String[] toppingSelection = scanner.nextLine().split(",");
@@ -159,43 +172,97 @@ public class Pizza extends OrderItems {
             pizza.addRegularTopping(MenuItems.regularToppings[idx]);
         }
 
+        // Add pizza to order
         order.addItemToOrder(pizza);
-        System.out.println("Pizza added to your order!");
+        System.out.println("Pizza added to order!");
         System.out.println("-------------------------------------------------------------------");
     }
 
-    //extra topping cost logic
+    // Mark that the user wants extra meat
+// Extra cost is added in basePrice
     private void addExtraMeat() {
         switch (pizzaSize) {
-            case "8" -> basePrice += 0.50;
-            case "12" -> basePrice += 1.00;
-            case "16" -> basePrice += 1.50;
+            case "8":
+                basePrice += 0.50;
+                break;
+            case "12":
+                basePrice += 1.00;
+                break;
+            case "16":
+                basePrice += 1.50;
+                break;
         }
     }
 
+    // Mark that the user wants extra cheese
+// Extra cost is added in basePrice
     private void addExtraCheese() {
         switch (pizzaSize) {
-            case "8" -> basePrice += 0.30;
-            case "12" -> basePrice += 0.60;
-            case "16" -> basePrice += 0.90;
+            case "8":
+                basePrice += 0.30;
+                break;
+            case "12":
+                basePrice += 0.60;
+                break;
+            case "16":
+                basePrice += 0.90;
+                break;
         }
     }
 
-    //calculate total pizza cost
+    // Calculate the total price of the pizza
+// Uses base price, premium toppings, extra toppings, and stuffed crust
     @Override
     public double getCost() {
-        double total = basePrice;
+
+        // Set premium topping prices based on size
+        double meatCost;
+        double cheeseCost;
 
         switch (pizzaSize) {
-            case "8" -> total += 1.00 + 0.75;
-            case "12" -> total += 2.00 + 1.50;
-            case "16" -> total += 3.00 + 2.25;
+            case "8":
+                meatCost = 1.00;
+                cheeseCost = 0.75;
+                break;
+            case "12":
+                meatCost = 2.00;
+                cheeseCost = 1.50;
+                break;
+            case "16":
+                meatCost = 3.00;
+                cheeseCost = 2.25;
+                break;
+            default:
+                meatCost = 0.00;
+                cheeseCost = 0.00;
+                break;
+        }
+
+        // Ignore "None" as a topping so it does not add cost
+        long realMeats = meats.stream()
+                .filter(m -> !m.equalsIgnoreCase("None"))
+                .count();
+
+        long realCheeses = cheeses.stream()
+                .filter(c -> !c.equalsIgnoreCase("None"))
+                .count();
+
+        // Start with base price
+        double total = basePrice;
+
+        // Add cost for premium meats and cheeses
+        total += realMeats * meatCost;
+        total += realCheeses * cheeseCost;
+
+        // Add cost for stuffed crust if selected
+        if (stuffedCrust) {
+            total += 2.00;
         }
 
         return total;
     }
 
-    //return formatted pizza details
+    // Format pizza details for order summary and receipt
     @Override
     public String toString() {
         return "\nPizza:" +
@@ -205,7 +272,6 @@ public class Pizza extends OrderItems {
                 "\nSauces: " + sauces +
                 "\nMeats: " + meats +
                 "\nCheeses: " + cheeses +
-                "\nToppings: " + regularToppings +
+                "\nRegular Toppings: " + regularToppings +
                 "\nPrice: $" + String.format("%.2f", getCost());
-    }
-}
+    }}
