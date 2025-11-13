@@ -1,0 +1,13 @@
+Order Details:
+
+Pizza:
+Size: 16"
+Crust: Thin
+Stuffed Crust: false
+Sauces: [Marinara]
+Meats: [None]
+Cheeses: [Mozzarella]
+Regular Toppings: [None]
+Price: $18.75
+
+Order Total: $18.75
