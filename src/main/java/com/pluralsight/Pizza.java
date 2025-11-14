@@ -178,7 +178,7 @@ public class Pizza extends OrderItems {
         System.out.println("-------------------------------------------------------------------");
     }
 
-    // Mark that the user wants extra meat
+
 // Extra cost is added in basePrice
     private void addExtraMeat() {
         switch (pizzaSize) {
@@ -194,7 +194,6 @@ public class Pizza extends OrderItems {
         }
     }
 
-    // Mark that the user wants extra cheese
 // Extra cost is added in basePrice
     private void addExtraCheese() {
         switch (pizzaSize) {
