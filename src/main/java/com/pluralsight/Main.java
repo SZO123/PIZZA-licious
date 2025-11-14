@@ -51,7 +51,7 @@ public class Main {
             System.out.println("3) Garlic Knots");
             System.out.println("4) Checkout");
             System.out.println("0) Cancel Order");
-            System.out.print("\nEnter selection: ");
+            System.out.print("\nEnter selection:");
             selection = Integer.parseInt(scanner.nextLine());
             System.out.println("-------------------------------------------------------------------");
 
