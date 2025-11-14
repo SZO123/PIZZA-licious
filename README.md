@@ -28,6 +28,12 @@ This project demonstrates advanced Object-Oriented Programming principles includ
 
 ---
 
+### UML
+
+<img width="768" height="837" alt="Pizza Diagram" src="https://github.com/user-attachments/assets/5299df6c-7ad0-4c18-8896-3644a0a4d7c2" />
+
+---
+
 ### Project Structure
 ```
 com.pluralsight  
