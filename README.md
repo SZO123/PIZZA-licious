@@ -94,8 +94,7 @@ ReceiptFileManager:
 - Object-Oriented Programming (OOP) principles  
 - File I/O using BufferedWriter
 
-- Developer
 
-Najib
+### Developer: Najib
 - Student / Year Up United
 - Advanced Java OOP Capstone Project
